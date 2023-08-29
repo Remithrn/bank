@@ -1,0 +1,200 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- basic -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- mobile metas -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+<!-- site metas -->
+<title>Bankio | register</title>
+<meta name="keywords" content="">
+<meta name="description" content="">
+<meta name="author" content=""> 
+<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+<link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+<link rel="icon" href="{% static 'images/fevicon.png' %}" type="image/gif" />
+<link rel="stylesheet" href="{% static 'css/jquery.mCustomScrollbar.min.css' %}">
+<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+<link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+<link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+<style>
+    .fixed-top-right {
+    position: fixed;
+    top: 0;
+    right: 0;
+    max-width: 750px;
+    height: auto;
+}
+.form-control:focus {
+  outline: none;
+  border-color: #80bdff;
+  box-shadow: 0 0 10px #80bdff;
+}
+</style>
+</head>
+<body>
+  <!--header section start -->
+    <div class="header_section">
+      <div class="header_left">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <div class="logo"><a href="{% url 'bank:home' %}"><img src="{% static 'images/logo.png'%}"></a></div>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="/">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'bank:login' %}">Login</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'bank:register' %}">Register</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBranches" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Branches
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownBranches">
+                  <a class="dropdown-item" href="https://en.wikipedia.org/wiki/Ernakulam">ERNAKULAM</a>
+                  <a class="dropdown-item" href="https://en.wikipedia.org/wiki/Thiruvananthapuram">TRIVANDRUM</a>
+                  <a class="dropdown-item" href="https://en.wikipedia.org/wiki/Kollam">KOLLAM</a>
+                  <a class="dropdown-item" href="https://en.wikipedia.org/wiki/Kannur">KANNUR</a>
+                  <a class="dropdown-item" href="https://en.wikipedia.org/wiki/Kottayam">KOTTAYAM</a>
+                </div>
+              </li>
+              
+            </ul>
+          </div>
+        
+        </nav>
+        
+      
+        <div class="container mt-5 mb-5">
+            <div class="row justify-content-center">
+              <div class="col-md-10">
+                <div class="registration-box">
+                  <h1 class="banner_taital">Registration</h1>
+                  <form action="." method="POST">
+                    {% csrf_token %}
+                    <div class="form-row">
+                      <div class="col-md-5 mb-3">
+                        <label for="validationDefault01">First name</label>
+                        <input type="text" class="form-control" id="validationDefault01" placeholder="First name"  name="first_name" required>
+                      </div>
+                      <div class="col-md-5 mb-3">
+                        <label for="validationDefault02">Last name</label>
+                        <input type="text" class="form-control" id="validationDefault02" placeholder="Last name" name="last_name" required>
+                      </div>
+                      <div class="col-md-10 mb-3">
+                        <label for="validationDefaultUsername">Email address</label>
+                        <div class="input-group">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroupPrepend2">@</span>
+                          </div>
+                          <input type="email" class="form-control" id="validationDefaultUsername" placeholder="Email" aria-describedby="inputGroupPrepend2" name="email" required>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-row">
+                      <div class="col-md-10 mb-3">
+                        <label for="validationDefault03">Username</label>
+                        <input type="text" class="form-control" id="validationDefault03" placeholder="Username" name="username" required>
+                      </div>
+                      <div class="col-md-5 mb-3">
+                        <label for="validationDefault04">Password</label>
+                        <input type="password" class="form-control" id="validationDefault04" name="password" required>
+                      </div>
+                      <div class="col-md-5 mb-3">
+                        <label for="validationDefault05">Confirm password</label>
+                        <input type="password" class="form-control" id="validationDefault05" name="password1" required>
+                      </div>
+                    </div>
+                    <button class="btn btn-primary" type="submit">Submit form</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% for msg in messages %}
+          {{msg}}
+          {% endfor %}
+        
+    <div class="header_right">
+        <img src="{% static 'images/feature-item-2.png' %}" class="banner_"style="position: absolute; top: 0px; right: 150px;width: 650px;" >
+    </div>
+    
+    </div>
+   
+     <!--footer section start -->
+     <div class="footer_section layout_padding">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-3 col-sm-6">
+            <h4 class="about_text">About Financial</h4>
+            <div class="location_text"><img src="{% static 'images/map-icon.png' %}"><span class="padding_left_15">Locations</span></div>
+            <div class="location_text"><img src="{% static 'images/call-icon.png' %}"><span class="padding_left_15">+01 9876543210</span></div>
+            <div class="location_text"><img src="{% static 'images/mail-icon.png' %}"><span class="padding_left_15">demo@gmail.com</span></div>
+          </div>
+          <div class="col-lg-3 col-sm-6">
+            <h4 class="about_text">About Financial</h4>
+            <p class="dolor_text">ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</p>
+          </div>
+          <div class="col-lg-3 col-sm-6">
+            <h4 class="about_text">Instagram</h4>
+            <div class="footer_images">
+              <div class="footer_images_left">
+                <div class="image_12"><img src="{% static 'images/img-12.png' %}"></div>
+                <div class="image_12"><img src="{% static 'images/img-12.png' %}"></div>
+                <div class="image_12"><img src="{% static 'images/img-12.png' %}"></div>
+              </div>
+              <div class="footer_images_right">
+                <div class="image_12"><img src="{% static 'images/img-12.png' %}"></div>
+                <div class="image_12"><img src="{% static 'images/img-12.png' %}"></div>
+                <div class="image_12"><img src="{% static 'images/img-12.png' %}"></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-sm-6">
+            <h4 class="about_text">Newsletter</h4>
+            <input type="text" class="mail_text" placeholder="Enter your email" name="Enter your email">
+            <div class="subscribe_bt"><a href="#">Subscribe</a></div>
+            <div class="footer_social_icon">
+              <ul>
+                <li><a href="#"><img src="{% static 'images/fb-icon1.png' %}"></a></li>
+                <li><a href="#"><img src="{% static 'images/twitter-icon1.png' %}"></a></li>
+                <li><a href="#"><img src="{% static 'images/linkedin-icon1.png' %}"></a></li>
+                <li><a href="#"><img src="{% static 'images/youtub-icon1.png' %}"></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- copyright section start -->
+        <div class="copyright_section">
+          <div class="copyright_text">Copyright 2019 All Right Reserved By <a href="https://html.design">Free HTML Templates</a></div>
+        </div>
+        <!-- copyright section end -->
+      </div>
+    </div>
+    
+    <!--footer section end -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'js/jquery-3.0.0.min.js' %}"></script>
+    <script src="{% static 'js/plugin.js' %}"></script>
+    <script src="{% static 'js/jquery.mCustomScrollbar.concat.min.js' %}"></script>
+    <script src="{% static 'js/custom.js' %}"></script>
+    <script src="{% static 'js/owl.carousel.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script> 
+</body>
+</html>
